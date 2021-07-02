@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #ffe194;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 10px;
+  padding: 10px;
+}
+
+/* ----section----- */
+section {
+  display: flex;
+  justify-content: center;
+}
+section input[type="text"] {
+  width: 500px;
+  height: 50px;
+  padding-left: 10px;
+  /* text-align: center; */
+  /* display: block;
+    margin: 0 auto; */
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+}
+
+section input[type="text"]:focus {
+  border: 2px solid #4c4c6d;
+}
+section input[type="submit"] {
+  margin-left: -52px;
+  height: 50px;
+  width: 100px;
+  background: #4c4c6d;
+  color: white;
+  border: 0;
+  border-radius: 100px;
+  cursor: pointer;
+}
+#container {
+  margin-top: 60px;
+}
+#container img {
+  width: 100%;
+}
+#show-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 20px;
+  text-align: center;
+  grid-column-gap: 20px;
+  padding: 0 200px;
+  overflow: hidden;
+}
+
+.food-item {
+  cursor: pointer;
+  width: 300px;
+}
+.food-item h4 {
+  margin-top: -10px;
+  padding-top: 20px;
+  height: 50px;
+  background-color: white;
+}
+
+.food-item img {
+  margin: 0;
+  padding: 0;
+}
+
+.food-item div {
+  background-color: white;
+  width: 100%;
+}
+/* ----modal----- */
+
+#modal-container {
+  background-color: rgba(232, 240, 242, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+#modal-container img {
+  width: 100%;
+}
+#modal {
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 10px;
+  height: 700px;
+  width: 400px;
+}
+#modal .center {
+  padding: 20px;
+}
+#modal img {
+  height: 300px;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#modal h4 {
+  margin: 20px 0;
+}
+
+i {
+  margin-right: 10px;
+}
+#close {
+  border: 0;
+  padding: 10px 30px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
