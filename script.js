@@ -1,8 +1,14 @@
 let inputBox = document.querySelector('#input-box')
 let searchButton = document.querySelector('#search-button')
+const all_food_item_my_container = document.querySelector('#all_food_item_my_container')
 let showDisplay = document.querySelector('#show-display')
 let modalContainer = document.querySelector("#modal-container")
 let modal = document.querySelector('#modal')
+
+const removed_or_show = (block_item, none_item) => { 
+    block_item.style.display = 'none'; 
+    none_item.style.display = 'block';
+};
 
 searchButton.addEventListener('click', () => {
     searchItem = inputBox.value
@@ -18,7 +24,7 @@ searchButton.addEventListener('click', () => {
                 let listItem = ''
                 data.meals.forEach(item => {
                     listItem += `
-                    <div onclick="displayFoodIngredients('${item.strMeal}'); close()" class="food-item" id="food-item">
+                    <div onclick="displayFoodIngredients('${item.strMeal}')" class="food-item" id="food-item">
                     <img src ="${item.strMealThumb}" >
                     
                     <h4>${item.strMeal}</h4>
@@ -33,10 +39,10 @@ searchButton.addEventListener('click', () => {
 })
 
 let displayFoodIngredients = (itemName) => {
+    removed_or_show(all_food_item_my_container, modalContainer);
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${itemName}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             modal.innerHTML = `       
             <img src ="${data.meals[0].strMealThumb}" >
     <div class="center">
@@ -54,18 +60,14 @@ let displayFoodIngredients = (itemName) => {
            <p><i class="fas fa-check-square"></i></i>${data.meals[0].strMeasure9} ${data.meals[0].strIngredient9}</p>
            <p><i class="fas fa-check-square"></i></i>${data.meals[0].strMeasure10} ${data.meals[0].strIngredient10}</p>
        </div>
-            <button onclick="closeButton()" id="close">Close<button>  
+            <button onclick="closeButton()" id="modalClose">Close</button>  
     </div>   
                 
-            `
-            modalContainer.style.display = 'block';   
+            ` 
         })
 
 }
 
-function closeButton(){
-    close.addEventListener('click',()=>{
-        console.log('Iam clicked')
-        modalContainer.style.display = 'none';
-    })
+function closeButton() {
+    removed_or_show(modalContainer, all_food_item_my_container);
 }
