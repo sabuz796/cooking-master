@@ -32,9 +32,6 @@ section input[type="text"] {
   width: 500px;
   height: 50px;
   padding-left: 10px;
-  /* text-align: center; */
-  /* display: block;
-    margin: 0 auto; */
   border-radius: 10px;
   border: 0;
   outline: 0;
